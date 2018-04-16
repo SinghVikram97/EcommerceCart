@@ -1,6 +1,6 @@
 const Sequelize=require('sequelize');
 
-const db=Sequelize(
+const db=new Sequelize(
 
     'ecartapp',
     'ecartappadmin',
@@ -22,7 +22,7 @@ const Product=db.define(
         },
 
         price:{
-            type:Sequelize.DataTypes.FLOAT
+            type:Sequelize.DataTypes.FLOAT,
             allowNull:false
         }
 
@@ -35,4 +35,6 @@ db.sync().then(()=>{
    console.log('Database is ready');
 });
 
-module.exports=Product;
+module.exports={
+    Product
+};
