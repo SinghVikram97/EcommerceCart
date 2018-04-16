@@ -1,6 +1,11 @@
 $(document).ready(function () {
 
+    let submitBtn=$('#product-submit');
 
+    let productNameInput=$('#product-name');
+    let productPriceInput=$('#product-price');
+    let productName;
+    let productPrice;
 
     let productTable=$('#product-table-body');
 
@@ -31,5 +36,31 @@ $(document).ready(function () {
 
     // Called on refresh
     getProducts();
+
+    submitBtn.click(function (e) {
+
+        e.preventDefault();
+
+        productName=productNameInput.val();
+        productNameInput.val('');
+
+        productPrice=productPriceInput.val();
+        productPriceInput.val('');
+
+
+
+        $.post('/products',
+            {
+
+                name: productName,
+                price: productPrice
+            },
+            // To update values
+            (data=>{
+                getProducts();
+            })
+        )
+
+    });
 
 });

@@ -5,7 +5,7 @@
     <title>Title</title>
     <script src="/js/jquery-3.3.1.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/admin.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
@@ -27,14 +27,33 @@
                 </span>
 
             </h2>
-            <h2>
-
-                <a href="admin.html">Admin</a>
-
-            </h2>
         </div>
     </div>
 
+    <!-- Product Add Form-->
+    <div id="product-add-form-container" class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <form>
+                <div class="form-group">
+                    <label for="product-name">Product Name</label>
+                    <input placeholder="Sample Product" class="form-control" type="text" name="name" id="product-name">
+                    <label for="product-price">Product Name</label>
+                    <input placeholder="1000" class="form-control" type="number" name="price" id="product-price">
+                    <div class="row p-2">
+                        <div class="col p-2">
+                            <input id="product-submit" class="btn btn-success col" type="submit" value="Submit">
+                        </div>
+                        <div class="col p-2">
+                            <input class="btn btn-danger col" type="reset" value="Reset">
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
 
     <!-- Producst Table -->
     <div class="row ml-3">
