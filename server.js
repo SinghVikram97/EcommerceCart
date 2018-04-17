@@ -1,11 +1,21 @@
 const express=require('express');
 const path=require('path');
+const session=require('express-session');
+const passport=require('./mypassport');
 
 const app=express();
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+app.use(session({
+    secret: 'something that should not be shared',
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('view engine','hbs');
 
