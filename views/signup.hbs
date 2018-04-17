@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8 p-3">
+            <h2 class="h2 text-center">Sign Up</h2>
+
+            <div id="user-form-signup" class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    <form action="/signup" method="post">
+                        <div class="form-group">
+                            <label for="user-username">Username</label>
+                            <input placeholder="Choose a username"
+                                   class="form-control" type="text"
+                                   name="username" id="user-username">
+                            <label for="user-password">Password</label>
+                            <input placeholder="Choose a password"
+                                   class="form-control" type="password"
+                                   name="password" id="user-password">
+                            <div class="row p-2">
+                                <div class="col p-2">
+                                    <input id="user-signup-submit"
+                                           class="btn btn-success col"
+                                           type="submit" value="Submit">
+                                </div>
+                                <div class="col p-2">
+                                    <input class="btn btn-danger col" type="reset" value="Reset">
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+</body>
+</html>
