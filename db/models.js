@@ -30,11 +30,29 @@ const Product=db.define(
 
 );
 
+const User=db.define(
+
+    'user',{
+        name:{
+
+            type:Sequelize.DataTypes.STRING,
+            allowNull:false,
+            unique:true
+
+        },
+        password:{
+            type:Sequelize.DataTypes.STRING,
+            allowNull:false
+        }
+    }
+
+);
+
 
 db.sync().then(()=>{
    console.log('Database is ready');
 });
 
 module.exports={
-    Product
+    Product,User
 };
