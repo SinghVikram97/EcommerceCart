@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     let productTable=$('#product-table-body');
 
+    
 
     function getProducts() {
 
@@ -23,6 +24,15 @@ $(document).ready(function () {
                     '<td style="padding-left: 10%">\n' +
                     product.price+'\n' +
                     '</td>\n' +
+                    '<td>\n' +
+                    '<i class="fa fa-minus remove"></i>'+'\n' +
+                    '</td>\n'+
+                    '<td>\n' +
+                    0+'\n' +
+                    '</td>\n'+
+                    '<td>\n' +
+                    '<i class="fa fa-plus add"></i>'+'\n' +
+                    '</td>\n'+
                     '</tr>')
             }
 
@@ -31,5 +41,12 @@ $(document).ready(function () {
 
     // Called on refresh
     getProducts();
+
+    $(document).on('click','.add',function () {
+        console.log($(this).parent().prev().html('1'));
+    });
+    $(document).on('click','.remove',function () {
+        console.log($(this).parent().next().html('-1'));
+    });
 
 });

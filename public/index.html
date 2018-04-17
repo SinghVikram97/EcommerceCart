@@ -7,6 +7,8 @@
     <script src="/js/bootstrap.js"></script>
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <div class="container p-2">
@@ -22,10 +24,6 @@
         <div class="col text-center">
             <h2>
                 Products
-                <span id="product-edit-toggle">
-                    <i class="far fa-edit" ></i>
-                </span>
-
             </h2>
             <h2>
 
@@ -36,7 +34,7 @@
     </div>
 
 
-    <!-- Producst Table -->
+    <!-- Products Table -->
     <div class="row ml-3">
         <div class="col"></div>
         <div class="col-9 p-4">
@@ -47,9 +45,12 @@
                     <th style="padding-left: 10%">S.No.</th>
                     <th style="padding-left: 10%">Name</th>
                     <th style="padding-left: 10%">Price</th>
+                    <th colspan="3" class="text-center">Quantity</th>
                 </tr>
                 </thead>
                 <tbody id="product-table-body">
+                <tr>
+                </tr>
                 </tbody>
             </table>
         </div>
