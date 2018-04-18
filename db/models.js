@@ -33,7 +33,7 @@ const Product=db.define(
 const User=db.define(
 
     'user',{
-        name:{
+        username:{
 
             type:Sequelize.DataTypes.STRING,
             allowNull:false,
@@ -45,7 +45,6 @@ const User=db.define(
             allowNull:false
         }
     }
-
 );
 
 

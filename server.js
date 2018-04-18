@@ -23,6 +23,7 @@ app.set('view engine','hbs');
 app.use('/products',require('./routes/products'));
 app.use('/signin',require('./routes/signin'));
 app.use('/signup',require('./routes/signup'));
+app.use('/myaccount',require('./routes/myaccount'));
 
 app.use('/',express.static(path.join(__dirname,'public')));
 

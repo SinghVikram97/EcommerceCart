@@ -1,28 +1,28 @@
-const route=require('express').Router();
-const {User}=require('./db/models');
+const route = require('express').Router();
+const {User} = require('../db/models');
 
-route.get('/',(req,res)=>{
-
-    res.render('signup');
-
+route.get('/', (req, res) => {
+    res.render('signup')
 });
 
-route.post('/',(req,res)=>{
-
-    if(!req.body.username){
-        res.send('Can\'t create account with empty username');
+route.post('/', (req, res) => {
+    if (!req.body.username) {
+        return res.send("Cannot create user with no username")
     }
-    else if(!req.body.password){
-        res.send('Can\'t create account with empty password');
+    if (!req.body.password) {
+        return res.send("Cannot create  user without password")
     }
 
     User.create({
-        username:req.body.username,
-        password:req.body.password
-    }).then((newUser)=>{
-        res.redirect('/signin').catch((err)=>res.send(err.message))
+        username: req.body.username,
+        password: req.body.password
+    }).then((newuser) => {
+        res.redirect('/signin')
+    }).catch((err) => {
+       res.send(err);
     })
+
 
 });
 
-module.exports=route;
+module.exports = route;

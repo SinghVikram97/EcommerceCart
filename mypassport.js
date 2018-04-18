@@ -1,56 +1,45 @@
-const passport=require('passport');
-const {User}=require('./db/models');
-const LocalStrategy=require('passport-local');
+const passport = require('passport');
+const {User} = require('./db/models');
+const LocalStrategy = require('passport-local').Strategy;
 
-
-passport.serializeUser((user,done)=>{
-
-    if(!user.id){
-        return done(new Error('User has no ID'));
+passport.serializeUser((user, done) => {
+    if (!user.id) {
+        return done(new Error("User has no ID"))
     }
 
-    done(null,user.id);
-
+    done(null, user.id)
 });
 
-
-passport.deserializeUser((userId,done)=>{
-
+passport.deserializeUser((userId, done) => {
     User.findOne({
-        where:{id:userId}
-    }).then((user)=>{
-        if(!user){
-            return done(new Error("No User found"));
+        where: {id: userId}
+    }).then((user) => {
+        if (!user) {
+            return done(new Error("No user found"))
         }
 
-        done(null,user);
-    }).catch((err)=>done(err));
-
+        done(null, user)
+    }).catch((err) => done(err))
 });
 
-passport.use(new LocalStrategy((username,password,done)=>{
-
+passport.use(new LocalStrategy((username, password, done) => {
     User.findOne({
-        where:{username:username}
-    }).then(user=>{
-
-        // Username doesn't exist
-        if(!user){
-          return done(null,false);
+        where: {username: username}
+    }).then((user) => {
+        if (!user) {
+            // Username does not exist
+            return done(null, false)
         }
-
         // In production use password hashes, do not save in db
-        if(user.password!==password){
-
-            // Password mismatch
-            return done(null,false);
+        if (user.password !== password) {
+            // Username exists, but password mismatch
+            return done(null, false)
         }
-        else{
-            return done(null,true);
-        }
-    }).catch((err)=>done(err));
 
+        // All good
+        done(null, user)
+
+    }).catch(err => done(err))
 }));
 
-
-module.exports=passport;
+module.exports = passport;
