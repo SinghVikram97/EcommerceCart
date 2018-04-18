@@ -52,7 +52,6 @@ const Cart = db.define(
     {
         qty: {
             type: Sequelize.DataTypes.INTEGER,
-            defaultValue: 0
         },
     userId: {
             type: Sequelize.DataTypes.INTEGER,
