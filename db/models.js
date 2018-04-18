@@ -47,38 +47,36 @@ const User=db.define(
     }
 );
 
-const Cart=db.define(
-    'cart',{
-
-        qty:{
-            type:Sequelize.DataTypes.INTEGER,
-            defaultValue:0
+const Cart = db.define(
+    'cart',
+    {
+        qty: {
+            type: Sequelize.DataTypes.INTEGER,
+            defaultValue: 0
         },
-
-        userId:{
-            type:Sequelize.DataTypes.STRING,
-            references:{
-                model:User,
-                key:'id'
-            }
+    userId: {
+            type: Sequelize.DataTypes.INTEGER,
+            references: {
+            model: User,
+            key: 'id'
+            },
+            unique: 'user_product'
+    },
+    productId: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+            model: Product,
+            key: 'id'
         },
-
-        productId:{
-            type:Sequelize.DataTypes.STRING,
-            references:{
-                model:Product,
-                key:'id'
-            }
-        }
+        unique: 'user_product'
 
     }
-);
-
+});
 
 db.sync().then(()=>{
    console.log('Database is ready');
 });
 
 module.exports={
-    Product,User
+    Product,User,Cart
 };

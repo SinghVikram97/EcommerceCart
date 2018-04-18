@@ -1,10 +1,9 @@
 $(document).ready(function () {
 
 
-
     let productTable=$('#product-table-body');
 
-    
+
 
     function getProducts() {
 
@@ -43,10 +42,18 @@ $(document).ready(function () {
     getProducts();
 
     $(document).on('click','.add',function () {
-        console.log($(this).parent().prev().html('1'));
+
+        let productId=($(this).parent().prev().prev().prev().prev().prev().html());
+        // console.log(productId);
+        $.post('/')
+
     });
     $(document).on('click','.remove',function () {
-        console.log($(this).parent().next().html('-1'));
+
+       let productId=($(this).parent().prev().prev().prev().html());
+       // console.log(productId);
+
     });
+
 
 });
