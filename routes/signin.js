@@ -16,7 +16,7 @@ route.post('/',
         }
     ),
     (req,res)=>{
-       res.redirect('/myaccount');
+       res.redirect('/');
     }
 );
 

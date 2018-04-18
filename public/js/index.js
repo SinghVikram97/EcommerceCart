@@ -105,4 +105,19 @@ $(document).ready(function () {
 
     checkStatus();
 
+
+    function getCartFromServer() {
+
+        $.get('/cart',(data)=>{
+
+            for(product in data){
+
+            }
+
+        })
+
+
+    }
+
+    getCartFromServer();
 });

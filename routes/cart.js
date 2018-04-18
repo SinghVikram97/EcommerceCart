@@ -10,8 +10,9 @@ route.get('/',(req,res)=>{
 
     else{
 
-       Cart.findAll().
-           then((cart)=>{res.send(cart)}).catch((err)=>res.send(err));
+        Cart.findAll({
+            where: {userId: req.user.id}
+        }).then(user=>res.send(user)).catch(err=>res.send(err));
 
     }
 
