@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 
     let productTable=$('#product-table-body');
+    let admin=$('#admin');
 
 
 
@@ -54,6 +55,28 @@ $(document).ready(function () {
        // console.log(productId);
 
     });
+
+
+    function checkStatus() {
+        $.get('/myaccount/status',(data)=>{
+            if(data.status===true){
+
+                // Logged in
+                admin.after('<a href="/myaccount" class="mr-3">Myaccount</a>');
+                admin.after('<a href="/logout" class="mr-3">Logout</a>')
+
+            }
+            else{
+
+                // Logged out
+                admin.after('<a href="/signin" class="mr-3 ">Signin</a>');
+                admin.after('<a href="/signup" class="mr-3">Signup</a>');
+
+            }
+        })
+    }
+
+    checkStatus();
 
 
 });
