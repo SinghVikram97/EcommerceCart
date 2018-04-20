@@ -10,12 +10,14 @@ $(document).ready(function () {
 
 
         $.get('/products',(data)=>{
-            console.log(data);
+            // console.log(data);
             productTable.empty();
 
+            let i=0;
             for(product of data){
+                i++;
                 productTable.append('<tr>\n' +
-                    '<td style="padding-left: 12%">\n' +
+                    `<td style="padding-left: 12%" id="product${i}">\n` +
                     +product.id+'\n' +
                     '</td>\n' +
                     '<td style="padding-left:9.5%">\n' +
@@ -56,7 +58,7 @@ $(document).ready(function () {
 
         },(data)=>{
 
-            console.log(data);
+            // console.log(data);
 
         })
     });
@@ -76,7 +78,7 @@ $(document).ready(function () {
 
         },(data)=>{
 
-            console.log(data);
+            // console.log(data);
 
         })
 
@@ -110,7 +112,13 @@ $(document).ready(function () {
 
         $.get('/cart',(data)=>{
 
-            for(product in data){
+            for(i in data){
+
+                let productStr='product'+data[i].productId;
+                console.log(productStr+':'+data[i].qty);
+
+                let product=$(`#${productStr}`);
+                product.next().next().next().next().html(data[i].qty);
 
             }
 
@@ -118,6 +126,7 @@ $(document).ready(function () {
 
 
     }
+
 
     getCartFromServer();
 });
