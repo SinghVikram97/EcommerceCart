@@ -1,3 +1,3 @@
-#A simple e-commerce web app
+#A simple, responsive and flexible e-commerce web app.
 
 ***
